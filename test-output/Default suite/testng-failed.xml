@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <parameter name="browser" value="FireFox"/>
+  <listeners>
+    <listener class-name="Common.TestListeners"/>
+  </listeners>
+  <test thread-count="5" name="Defaulttest1(failed)">
+    <classes>
+      <class name="Tests.AtLoginValid">
+        <methods>
+          <include name="loginValidTest" invocation-numbers="0"/>
+          <include name="ConnectToDeviceOrBrowser"/>
+        </methods>
+      </class> <!-- Tests.AtLoginValid -->
+    </classes>
+  </test> <!-- Defaulttest1(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
