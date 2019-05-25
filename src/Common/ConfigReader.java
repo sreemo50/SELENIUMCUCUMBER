@@ -8,8 +8,8 @@ import java.util.Properties;
 
 
 public class ConfigReader {
-	private Properties properties;
-	private final String propertyFilePath="\\CheckforTest\\ConfigurationProper\\ConfigProper.properties";
+	private static Properties properties;
+	private final String propertyFilePath="./ConfigurationProper/ConfigProper.properties";
 	
 	public ConfigReader()
 	{
@@ -29,7 +29,7 @@ public class ConfigReader {
 		}		
 	}
 	
-	public String getDriverPath()
+	public static  String getDriverPath()
 	{
 		
 		String driverpath=properties.getProperty("drverpath");
@@ -43,7 +43,7 @@ public class ConfigReader {
 	
 	
 	
-	public String getApplicationUrl()
+	public static  String getApplicationUrl()
 	{
 		
 		String appUrl=properties.getProperty("url");
@@ -54,7 +54,7 @@ public class ConfigReader {
 			throw new RuntimeException("please specify appUrl in config");
 			
 	}
-	public String defaultBrowser()
+	public static String defaultBrowser()
 	{
 		 System.out.println("The browser does");
 		String browserDef=properties.getProperty("defaultBrowser");
@@ -64,6 +64,13 @@ public class ConfigReader {
 		else
 			throw new RuntimeException("please specify browserDef in config");
 			
+	}
+	
+	public static String getReportConfigPath()
+	{
+		 String reportConfigPath = properties.getProperty("reportConfigPath");
+		 if(reportConfigPath!= null) return reportConfigPath;
+		 else throw new RuntimeException("Report Config Path not specified in the Configuration.properties file for the Key:reportConfigPath"); 
 	}
 	
 	

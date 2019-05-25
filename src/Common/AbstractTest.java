@@ -34,6 +34,9 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 //import org.testng.annotations.DataProvider;
 //import org.testng.annotations.Parameters;
 //import org.testng.annotations.Test;
+//import org.testng.annotations.BeforeSuite;
+
+//import com.cucumber.listener.Reporter;
 
 public abstract class AbstractTest {
 	protected WebDriver seleniumWebDriver;
@@ -51,6 +54,8 @@ public abstract class AbstractTest {
 	public  void  ConnectToDeviceOrBrowser() throws MalformedURLException {	
 	  try
 	  {
+		  configReader = new ConfigReader();
+		  //System.out.println(ConfigReader.getReportConfigPath());
 	  System.out.println("The browser doesnot support");
 	  if(configReader.defaultBrowser().equals("IE")){
 		  System.setProperty("webdriver.InternetExplorer.driver",configReader.getDriverPath());
@@ -70,8 +75,7 @@ public abstract class AbstractTest {
 	  }
 	  else if(configReader.defaultBrowser().equals("FireFox")){
 		  FirefoxOptions options = new FirefoxOptions();
-		  options.addArguments("--disable-notifications");
-		  
+		  options.addArguments("--disable-notifications");		  
 		  System.setProperty("webdriver.gecko.driver",configReader.getDriverPath());
 		  this.seleniumWebDriver=SeleniumWebDriverBuilder.foFirefoxDriverWebDriverrDriver().withLink(new URL(configReader.getApplicationUrl())).withPlatform("").withVersion("").build();
 		  
@@ -89,12 +93,31 @@ public abstract class AbstractTest {
 		  System.out.println("defr"+e.getMessage());
 	  }
   }
+	
+	public void ExitingDriver() {
+		  seleniumWebDriver.quit();
+	  }
+	
+	/*public static void writeToExtendReport()
+	{
+		Reporter.loadXMLConfig(new File(ConfigReader.getReportConfigPath()));
+	    Reporter.setSystemInfo("User Name", System.getProperty("user.name"));
+	    Reporter.setSystemInfo("Time Zone", System.getProperty("user.timezone"));
+	    Reporter.setSystemInfo("Machine", 	"Windows 10" + "64 Bit");
+	    Reporter.setSystemInfo("Selenium", "3.7.0");
+	    Reporter.setSystemInfo("Maven", "3.5.2");
+	    Reporter.setSystemInfo("Java Version", "1.8.0_151");
+	}*/
   
  /* @Test
 	public void example_VerifyDownloadWithFileExtension()  {		
 	  seleniumWebDriver.findElement(By.linkText("mailmerge.xls")).click();
 	    Assert.assertTrue(isFileDownloaded_Ext("", ".xls"), "Failed to download document which has extension .xls");
 	}*/
+	
+	
+	
+	
   protected boolean isFileDownloaded_Ext(String dirPath, String ext){
 		boolean flag=false;
 	    File dir = new File(dirPath);
@@ -228,7 +251,7 @@ fileName);
 	}
 
   
-  //@BeforeSuite
+ /* @BeforeSuite
   public void beforeSuite() throws IOException {
 	  
 	  //we need to take the backup of report generated for test
@@ -239,7 +262,7 @@ fileName);
 	 
 	  
   }
-  
+*/  
  /*@AfterSuite
   public void beforeSuite() {
 	  seleniumWebDriver.quit();

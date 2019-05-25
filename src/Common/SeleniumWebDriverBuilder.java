@@ -8,6 +8,12 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 
+
+
+
+import org.openqa.selenium.remote.CapabilityType;
+import org.openqa.selenium.remote.DesiredCapabilities;
+
 public abstract class SeleniumWebDriverBuilder<SELF,DRIVER extends WebDriver> {
 	
 	protected URL urllink;
@@ -25,6 +31,16 @@ public abstract class SeleniumWebDriverBuilder<SELF,DRIVER extends WebDriver> {
 		
 	}
 	public static IEDriverWebDriver foIEDriverWebDriverWebDriverrDriver(){
+		return new IEDriverWebDriver();
+		
+	}
+	
+	public static IEDriverWebDriver forMobileAndroid(){
+		return new IEDriverWebDriver();
+		
+	}
+	
+	public static IEDriverWebDriver forMobileIOS(){
 		return new IEDriverWebDriver();
 		
 	}

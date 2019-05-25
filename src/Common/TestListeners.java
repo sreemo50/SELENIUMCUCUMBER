@@ -1,4 +1,4 @@
-package Common;
+/*package Common;
 
 import java.io.File;
 
@@ -27,11 +27,11 @@ public class TestListeners implements ITestListener {
 
 	public void onTestSuccess(ITestResult result) {
 		// TODO Auto-generated method stub
-		/*
+		
 		logger=extent.startTest("passTest");
 		Assert.assertTrue(true);
 		logger.log(LogStatus.PASS,"Test case (failure) status is passed");
-		*/
+		
 		
 		extent.flush();
 		
@@ -42,9 +42,9 @@ public class TestListeners implements ITestListener {
 		// TODO Auto-generated method stub
 		
 		//System.out.println("The test has failed becoze : "+result.getName());should be uncommeneted
-		/*logger=extent.startTest("failTest");
+		logger=extent.startTest("failTest");
 		Assert.assertTrue(false);
-		logger.log(LogStatus.PASS,"Test case passed is passTest");*/
+		logger.log(LogStatus.PASS,"Test case passed is passTest");
 		extent.flush();		
 	}
 
@@ -64,14 +64,14 @@ public class TestListeners implements ITestListener {
 	public void onStart(ITestContext context) {
 		
 		// TODO Auto-generated method stub F:\Repo
-		/*extent=new ExtentReports(System.getenv("user.dir")+"/test-output/STMExtentReport.html",true);
+		extent=new ExtentReports(System.getenv("user.dir")+"/test-output/STMExtentReport.html",true);
 		extent
 		.addSystemInfo("Host Name", "Software Automation Meterial")
 		.addSystemInfo("Environment", "Automation Practice")
 		.addSystemInfo("User Name", "Sreekanth");
 		
 		extent.loadConfig(new File(System.getProperty("user.dir")+"\\extent-config.xaml"));
-		*/
+		
 		//System.out.println("The test has folder : "+System.getenv("user.dir"));
 		
 		
@@ -98,3 +98,4 @@ public class TestListeners implements ITestListener {
 	
 
 }
+*/

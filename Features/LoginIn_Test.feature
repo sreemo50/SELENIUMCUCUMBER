@@ -19,36 +19,26 @@
 @tag
 Feature: Test Facebook Smoke scenario
 
-##  @tag1
-  ##Scenario: Successful Login with Valid credentials	
-    ##Given User is on Home Page
-    ##And some other precondition
-    ##When I complete action
-    ##And some other action
-    ##And yet another action
-    ##Then I validate the outcomes
-    ##And check more outcomes
-    
-    
+  ##  @tag1
+  ##Scenario: Successful Login with Valid credentials
+  ##Given User is on Home Page
+  ##And some other precondition
+  ##When I complete action
+  ##And some other action
+  ##And yet another action
+  ##Then I validate the outcomes
+  ##And check more outcomes
   @LoginSuccess
-  Scenario: Successful Login with Valid credentials	
+  Scenario: Successful Login with Valid credentials
     Given I Open Chrome and start application
     When User enter valid username and password
     And User click on Login
     Then Message displayed username
-        
+
   @SuccessfulLogout
   Scenario: Successful Logout
     When User Logout
     Then User should see Login
-    
-
-##  @LoginFailedCases
- ## Scenario: Failed Login
-  ##  Given Open Chrome and start application
- ##   When I enter Invalid username and password
-  ##  Then  Message displayed failed on the page
-
   ##  Examples: 
   ##  | name  | value | status  |
 ##    | name1 |     5 | success |
